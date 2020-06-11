@@ -189,7 +189,7 @@
                                     $preference->external_reference = "federicosoich@gmail.com";
                                     $preference->notification_url = "https://artesaniasushuaia.com/botgento/noti.php";
                                     $preference->save(); # Save the preference and send the HTTP Request to create
-                                    print_r($preference);
+                                   // print_r($preference);
                                     # Return the HTML code for button
                                     
                                     echo "<a href='$preference->init_point'> Pagar la compra </a>";
