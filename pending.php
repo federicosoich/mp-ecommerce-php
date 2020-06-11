@@ -13,8 +13,8 @@ curl_close($ch);
 
  echo 'PAGO PENDIENTE !!<br><br>';
            print_r($result);
-           echo "<a href='/index.php'>VOLVER AL INICIO</a>";
-           return 200;
+           echo "<br><br><a href='/index.php'>VOLVER AL INICIO</a>";
+           
           
 
 

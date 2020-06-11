@@ -16,7 +16,7 @@ curl_close($ch);
  echo 'GRACIAS POR TU COMPRA !!<br><br>';
            print_r($result);
            echo "<br><br><a href='/index.php'>VOLVER AL INICIO</a>";
-           return 200;
+           //return 200;
            
 
 ?>

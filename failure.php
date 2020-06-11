@@ -12,10 +12,10 @@ if (curl_errno($ch)) {
 curl_close($ch);
 
 
-echo 'FALLO tu pago<br>';
+echo 'FALLO tu pago<br><br>';
            print_r($result);
-           echo "<a href='/index.php'>VOLVER AL INICIO</a>";
-           return 200;
+           echo "<br><br><a href='/index.php'>VOLVER AL INICIO</a>";
+          // return 200;
           
 
 
