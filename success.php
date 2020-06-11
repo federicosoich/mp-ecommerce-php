@@ -17,5 +17,6 @@ curl_close($ch);
            print_r($result);
 
            return 200;
+           echo "<a href='/index.php'>VOLVER AL INICIO</a>";
 
 ?>
