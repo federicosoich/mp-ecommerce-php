@@ -186,7 +186,7 @@
                                         "pending" => "https://federicosoich-mp-commerce-php.herokuapp.com/pending.php"
                                     );
                                     $preference->auto_return = "approved";
-                                    $preference->external_reference = "federicosoich@gmail.com";
+                                    $preference->external_reference = "federicosoichxxx@gmail.com";
                                     
                                     $preference->save(); # Save the preference and send the HTTP Request to create
                                    // print_r($preference);
