@@ -145,9 +145,11 @@
                                     $item1 = new MercadoPago\Item();
                                     $item1->id = "1234";
                                     $item1->title = $_POST['title']; 
+                                    $item1->description = "Dispositivo móvil de Tienda e-commerce";
                                     $item1->quantity = $_POST['unit'];
                                     $item1->unit_price = $_POST['price'];
                                     $item1->picture_url = "https://federicosoich-mp-commerce-php.herokuapp.com/assets/003.jpg";
+                                    $item1->external_reference = "federicosoich@gmail.com";
                                     
                                     $preference->items = array($item1);
 
