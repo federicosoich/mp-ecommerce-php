@@ -11,6 +11,7 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+    <script src="https://www.mercadopago.com/v2/security.js" view=""></script>
 
     <link rel="stylesheet" href="./assets/category-landing.css" media="screen, print">
 
@@ -124,13 +125,74 @@
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo $_POST['price'] ?>
+                                            <?php echo $_POST['unit'] ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "$" . $_POST['unit'] ?>
+                                            <?php echo "$" . $_POST['price'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                   
+                                    <?php
+                                    ini_set('error_reporting', E_ALL);
+                                    require_once 'vendor/autoload.php';
+  
+                                    MercadoPago\SDK::setAccessToken("APP_USR-6317427424180639-042414-47e969706991d3a442922b0702a0da44-469485398");
+                                    MercadoPago\SDK::setIntegratorId("dev_24c65fb163bf11ea96500242ac130004");
+
+                                    $preference = new MercadoPago\Preference();
+                                
+                                    
+                                    $item1 = new MercadoPago\Item();
+                                    $item1->id = "1234";
+                                    $item1->title = $_POST['title']; 
+                                    $item1->quantity = $_POST['unit'];
+                                    $item1->unit_price = $_POST['price'];
+                                    $item1->picture_url = "https://federicosoich-mp-commerce-php.herokuapp.com/assets/003.jpg";
+                                    
+                                    $preference->items = array($item1);
+
+
+                                    $payer = new MercadoPago\Payer();
+                                    $payer->name = "Lalo";
+                                    $payer->surname = "Landa";
+                                    $payer->email = "test_user_63274575@testuser.com";
+                                    $payer->date_created = "2018-06-02T12:58:41.425-04:00";
+                                    $payer->phone = array(
+                                      "area_code" => "11",
+                                      "number" => "22223333"
+                                    );
+                        
+                                    
+                                    $payer->address = array(
+                                      "street_name" => "False",
+                                      "street_number" => "123",
+                                      "zip_code" => "1111"
+                                    );
+                                    
+                                    $preference->payment_methods = array(
+                                      "excluded_payment_types" => array(
+                                        array("id" => "atm")
+                                      ),
+                                      "excluded_payment_methods" => array(
+                                        array("id" => "amex")
+                                      ),
+                                      "installments" => 06
+                                    );
+                                    $preference->back_urls = array(
+                                        "success" => "https://federicosoich-mp-commerce-php.herokuapp.com/success.php",
+                                        "failure" => "https://federicosoich-mp-commerce-php.herokuapp.com/failure.php",
+                                        "pending" => "https://federicosoich-mp-commerce-php.herokuapp.com/pending.php"
+                                    );
+                                    $preference->auto_return = "approved";
+                                    $preference->external_reference = "federicosoich@gmail.com";
+                                    
+                                    $preference->save(); # Save the preference and send the HTTP Request to create
+                                   // print_r($preference);
+                                    # Return the HTML code for button
+                                    
+                                    echo "<a href='$preference->init_point'> Pagar la compra </a>";
+                                    
+                                    ?>
                                 </div>
                             </div>
                         </div>
