@@ -14,9 +14,9 @@ curl_close($ch);
 
 echo 'FALLO tu pago<br>';
            print_r($result);
-
-           return 200;
            echo "<a href='/index.php'>VOLVER AL INICIO</a>";
+           return 200;
+          
 
 
 

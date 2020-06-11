@@ -13,9 +13,9 @@ curl_close($ch);
 
  echo 'PAGO PENDIENTE !!<br><br>';
            print_r($result);
-
-           return 200;
            echo "<a href='/index.php'>VOLVER AL INICIO</a>";
+           return 200;
+          
 
 
 
