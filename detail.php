@@ -170,7 +170,7 @@
                                       "street_number" => "123",
                                       "zip_code" => "1111"
                                     );
-                                    
+                                    $preference->payer = $payer;
                                     $preference->payment_methods = array(
                                       "excluded_payment_types" => array(
                                         array("id" => "atm")
